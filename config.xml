@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.gbckenya.WVEF" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.gbckenya.WVEF" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Women Owned Businesses Network</name>
     <description>
         Women Owned Businesses Network
     </description>
-    <author email="support@gbc.co.ke" href="http://gbc.co.ke">
+    <author email="ops@buluma.me.ke" href="https://buluma.me.ke">
         Women Owned Businesses Network
     </author>
     <content src="index.html" />

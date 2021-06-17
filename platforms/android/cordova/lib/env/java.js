@@ -43,12 +43,12 @@ const java = {
         // Java <= 8 writes version info to stderr, Java >= 9 to stdout
         let version = null;
         try {
-            version = (await execa('javac', ['-version'], { all: true })).all;
+            version = (await execa('java', ['-version'], { all: true })).all;
         } catch (ex) {
             events.emit('verbose', ex.shortMessage);
 
             let msg =
-            'Failed to run "javac -version", make sure that you have a JDK version 8 installed.\n' +
+            'Failed to run "java -version", make sure that you have a JDK version 8 installed.\n' +
             'You can get it from the following location:\n' +
             'https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html';
             if (process.env.JAVA_HOME) {

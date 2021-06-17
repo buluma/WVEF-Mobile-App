@@ -34,7 +34,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    needs: testoutput
+    # needs: testoutput
 
     steps:
     - uses: actions/checkout@v2

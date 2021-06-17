@@ -20,7 +20,7 @@ jobs:
         distribution: 'adopt'
 
     - name: Install Cordova
-      run: npm install -g cordova
+      run: sudo npm install -g cordova
       
     - name: Setup Cordova - Buluma
       # You may pin to the exact commit or the version.

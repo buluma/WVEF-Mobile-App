@@ -72,7 +72,7 @@ const java = {
             return;
         }
 
-        const javacPath = utils.forgivingWhichSync('javac');
+        const javacPath = utils.forgivingWhichSync('java');
         const hasJavaHome = !!environment.JAVA_HOME;
         if (hasJavaHome) {
             // Windows java installer doesn't add javac to PATH, nor set JAVA_HOME (ugh).

@@ -22,8 +22,9 @@ jobs:
     - name: check and instl jdk-8
       run: sudo apt-get install openjdk-8-jdk
 
-    - name: check for jdk path
-      run: ls /usr/lib/jvm/
+    - name: check for jdk path and export
+      # run: ls /usr/lib/jvm/
+      run: ls /usr/lib/jvm/ && export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 && export PATH=$JAVA_HOME/bin:$PATH
 
     - name: check java version
       run: java -version && echo $JAVA_HOME

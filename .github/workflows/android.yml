@@ -20,7 +20,7 @@ jobs:
     #     distribution: 'adopt'
 
     - name: check and instl jdk-8
-      run: sudo apt-get install openjdk-8-jdk && sudo update-java-alternatives --list
+      run: sudo apt-get install openjdk-8-jdk
 
     - name: check java version
       run: java -version && javac -version && echo $JAVA_HOME

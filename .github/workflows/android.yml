@@ -19,8 +19,12 @@ jobs:
     #     java-version: '8'
     #     distribution: 'adopt'
 
+    - name: remove java 11
+      run: sudo rm -r /usr/lib/jvm/java-11-oracle && java -version
+
     - name: check and instl jdk-8
-      run: sudo apt-get install openjdk-8-jdk
+      # run: sudo apt-get install openjdk-8-jdk
+      run: sudo apt install openjdk-8-jdk openjdk-8-jre
 
     - name: check for jdk path and export
       # run: ls /usr/lib/jvm/

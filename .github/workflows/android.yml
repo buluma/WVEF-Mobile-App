@@ -48,8 +48,8 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
-    - name: Install Cordova
-      run: sudo npm install -g cordova
+    - name: Install Cordova & node-properties-parser
+      run: sudo npm install -g cordova && sudo npm install node-properties-parser
       
     - name: Build Android
       # You may pin to the exact commit or the version.

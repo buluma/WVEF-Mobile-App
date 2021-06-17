@@ -12,18 +12,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 8
-      uses: actions/setup-java@v2
-      with:
-        java-version: '8'
-        distribution: 'adopt'
-      
-    - name: Check for Platforms installed
-      uses: buluma/setup-cordova@v0.0.3
-      with:
-        # Apache Cordova command to execute
-        exec: cordova platform ls && java -version && echo $JAVA_HOME
+    # - uses: actions/checkout@v2
+    # - name: Set up JDK 8
+    #   uses: actions/setup-java@v2
+    #   with:
+    #     java-version: '8'
+    #     distribution: 'adopt'
+
+    - name: check and instl jdk-8
+      run: sudo apt-get install openjdk-8-jdk && sudo update-java-alternatives --list
+
+    - name: check java version
+      run: java -version && javac -version && echo $JAVA_HOME
 
   test-output:
     runs-on: ubuntu-latest

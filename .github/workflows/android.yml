@@ -23,7 +23,10 @@ jobs:
       run: sudo apt-get install openjdk-8-jdk
 
     - name: check java version
-      run: java -version && javac -version && echo $JAVA_HOME
+      run: java -version && echo $JAVA_HOME
+
+    - name: check javac version
+      run: javac -version && echo $JAVA_HOME
 
   test-output:
     runs-on: ubuntu-latest

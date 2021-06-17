@@ -9,11 +9,11 @@ Contributing
 
 Internal patches are welcome! Feel free to fork and contribute to this project. If you find a problem and wish to report it, please let us know.
 
-[GBC Support]: gbc.co.ke/contact-us
+[ShadowNet]: buluma.co.ke
 
 Software
 -------
 
-This software is developed by GreenBell Communications. Contact support@gbc.co.ke
+Maintained by Shadow Walker
 
 

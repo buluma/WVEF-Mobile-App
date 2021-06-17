@@ -28,4 +28,4 @@ jobs:
       uses: buluma/setup-cordova@v0.0.3
       with:
         # Apache Cordova command to execute
-        exec: cordova platform add browser && cordova build browser --verbose
+        exec: cordova platform add android && cordova build android --verbose

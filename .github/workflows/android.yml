@@ -23,7 +23,7 @@ jobs:
       uses: buluma/setup-cordova@v0.0.3
       with:
         # Apache Cordova command to execute
-        exec: cordova platform ls && javac -version
+        exec: cordova platform ls && java -version
 
   testout-put:
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
       uses: buluma/setup-cordova@v0.0.3
       with:
         # Apache Cordova command to execute
-        exec: javac -version && cordova build android --verbose
+        exec: java -version && cordova build android --verbose
 #         exec: cordova platform ls
   
   buildout-put:

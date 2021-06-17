@@ -1,5 +1,6 @@
 WVEF-Mobile-App
 =======
+[![Android CI](https://github.com/buluma/WVEF-Mobile-App/actions/workflows/android.yml/badge.svg)](https://github.com/buluma/WVEF-Mobile-App/actions/workflows/android.yml)
 
 *WVEF-Mobile-App* is a Mobile Application that connects Women Business Owners and Buyers and vice versa. It is as shiny, awesome, and open sourcy as always. Perhaps even a little more.
 

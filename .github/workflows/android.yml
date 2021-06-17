@@ -25,7 +25,7 @@ jobs:
         # Apache Cordova command to execute
         exec: cordova platform ls
 
-  job1output:
+  testoutput:
     runs-on: ubuntu-latest
     needs: test
     steps:
@@ -55,3 +55,9 @@ jobs:
         # Apache Cordova command to execute
         exec: cordova build android --verbose
 #         exec: cordova platform ls
+  
+  buildoutput:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: echo ${{needs.build.outputs}} ${{needs.build.outputs.output2}}

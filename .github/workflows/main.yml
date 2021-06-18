@@ -52,3 +52,25 @@ jobs:
     steps:
       - run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
 
+      - uses: actions/checkout@v2
+      - name: remove java 11
+        run: ls /usr/lib/jvm/ && sudo rm -r /usr/lib/jvm/adoptopenjdk-11-hotspot-amd64
+
+      - name: Instl jdk-8 & Check installed version
+        run: sudo apt install openjdk-8-jdk openjdk-8-jre && java -version
+
+      - name: Install Cordova & node-properties-parser
+        run: sudo npm install -g cordova && sudo npm install node-properties-parser
+        
+      - name: Build Android
+        uses: buluma/setup-cordova@v0.0.3
+        with:
+          # Apache Cordova command to execute with java verification
+          exec: java -version && cordova build android --verbose
+
+      - name: Upload APK File
+        uses: actions/upload-artifact@v2
+        with:
+          # Define Package file for release workflow
+          name: wvef-app-debug.apk
+          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk

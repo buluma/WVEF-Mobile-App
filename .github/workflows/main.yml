@@ -22,7 +22,7 @@ jobs:
       output2: ${{ steps.step2.outputs.tag }}
     steps:
       - id: step1
-        run: echo "::set-output name=test::hello"
+        run: echo "::set-output name=test::tag"
       - id: step2
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
   job2:

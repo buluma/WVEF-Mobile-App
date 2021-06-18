@@ -128,7 +128,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: always()
-    needs: [version_job, build]
+    # needs: [version_job, build]
+    needs: [build]
     steps:
     - name: Delete
       uses: liudonghua123/delete-release-action@v1
@@ -141,7 +142,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v2.2.0
+        tag_name: v2.2.1
         release_name: $RELEASE_VERSION
         draft: false
         prerelease: false

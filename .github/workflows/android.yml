@@ -93,19 +93,19 @@ jobs:
       uses: devellany/send-mailer@v1.0.2
       with:
         host: smtp.sendgrid.net
-           # Optional port (defaults to 465)
-           port: 465
-           account: ${{secrets.apikey}}
-           password: ${{secrets.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}}
-           sender: michael@buluma.me.ke
-           from: ${{secrets.michael@buluma.me.ke}}
-           to: michael@buluma.me.ke
-           subject: mail title.
-           body: your messages.
-           # Optional content type (defaults to text/plain)
-           contentType: text/plain
-           # Optional attachment files (JSON type. require property 'path')
-           attachments: '[{"path":"README.md"}]'
+          # Optional port (defaults to 465)
+        port: 465
+        account: ${{secrets.apikey}}
+        password: ${{secrets.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}}
+        sender: michael@buluma.me.ke
+        from: ${{secrets.michael@buluma.me.ke}}
+        to: michael@buluma.me.ke
+        subject: mail title.
+        body: your messages.
+        # Optional content type (defaults to text/plain)
+        contentType: text/plain
+        # Optional attachment files (JSON type. require property 'path')
+        attachments: '[{"path":"README.md"}]'
   
   build-output:
     runs-on: ubuntu-latest

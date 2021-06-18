@@ -3,7 +3,6 @@
     "cordova-android": "^9.1.0",
     "cordova-plugin-whitelist": "1"
   },
-  "dependencies": {},
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {}

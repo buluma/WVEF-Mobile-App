@@ -3,7 +3,7 @@
 
 name: Test, Build and Release
 
-# Controls when the action will run. 
+# Build only on push tags
 on:
   push:
     tags:

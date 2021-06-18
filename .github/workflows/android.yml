@@ -126,7 +126,7 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
-    needs: version_job
+    needs: version_job, build
     steps:
     - name: Create Draft Release
       id: create_release

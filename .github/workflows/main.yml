@@ -123,7 +123,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: wvef-app-debug.apk
+        asset_path: /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App/wvef-app-debug.apk
         asset_name: wvef-app-debug.${{ steps.create_release.outputs.id }}.apk
         asset_content_type: application/apk
 

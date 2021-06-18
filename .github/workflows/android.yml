@@ -147,12 +147,17 @@ jobs:
         # Download Package file from build workflow
         name: wvef-app-debug.apk
 
+    # delete-artifact before upload new
+    - uses: geekyeggo/delete-artifact@v1
+      with:
+        name: app-debug.apk
+
     - uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App/app-debug.apk
+        asset_path: /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App/wvef-app-debug.apk
         asset_name: wvef-app-debug.${{ steps.create_release.outputs.id }}.apk
         asset_content_type: application/apk
 

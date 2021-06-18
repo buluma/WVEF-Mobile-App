@@ -48,6 +48,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    if: always()
     needs: [test, build]
     steps:
       - run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}

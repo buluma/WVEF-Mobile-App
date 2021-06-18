@@ -81,6 +81,7 @@ jobs:
   
   pre-release:
     runs-on: ubuntu-latest
+    if: always()
     needs: build
     steps:
     - name: Download APK File from Build
@@ -126,6 +127,7 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
+    if: always()
     needs: version_job, build
     steps:
     - name: Create Draft Release

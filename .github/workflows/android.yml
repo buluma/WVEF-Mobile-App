@@ -83,11 +83,11 @@ jobs:
     - name: APK files
       run: tar -cvf wvef-app-debug.apk /github/workspace/platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
-      - name: 'Upload Artifact'
-        uses: actions/upload-artifact@v2
-        with:
-          name: wvef-app-debug-apk
-          path: wvef-app-debug.apk
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: wvef-app-debug-apk
+        path: wvef-app-debug.apk
 
      - name: Send email
       uses: devellany/send-mailer@v1.0.2

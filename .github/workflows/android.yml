@@ -137,6 +137,9 @@ jobs:
       with:
         release_name: 'latest'
 
+    - name: checktags
+      run: echo ${{ steps.vars.outputs.tag }}
+
     - name: Create Draft Release
       id: create_release
       uses: actions/create-release@v1

@@ -105,7 +105,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         # Download Package file from build workflow
-        name: wvef-app-debug.apk
+        name: app-debug.apk.apk
 
     - name: Verify APK exists
       run: ls -a /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App
@@ -123,8 +123,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App/wvef-app-debug.apk
-        asset_name: wvef-app-debug.${{ steps.create_release.outputs.id }}.apk
+        asset_path: /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App/app-debug.apk
+        asset_name: app-debug.${{ steps.create_release.outputs.id }}.apk
         asset_content_type: application/apk
 
     - uses: eregon/publish-release@v1

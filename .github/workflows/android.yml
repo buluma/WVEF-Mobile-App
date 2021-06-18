@@ -20,7 +20,7 @@ jobs:
     #     distribution: 'adopt'
 
     - name: remove java 11
-      run: sudo rm -r /usr/lib/jvm/java-11-oracle && java -version
+      run: ls /usr/lib/jvm/ && sudo rm -r /usr/lib/jvm/adoptopenjdk-11-hotspot-amd64 && java -version
 
     - name: check and instl jdk-8
       # run: sudo apt-get install openjdk-8-jdk

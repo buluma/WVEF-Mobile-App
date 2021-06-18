@@ -98,10 +98,13 @@ textarea.form-control{
     margin-right:7px;
     color:white;
 }
+.btn-primary{
+    background-image: linear-gradient(to bottom, #f28106 0%, #f28106 100%);
+}
 .list-group.homepage-buttons .list-group-item a{
     display:block;
     background:rgba(242,129,6,1);
-    color:white;
+    color:white !important;
     padding:10px 15px;
     margin:1px 0px;
     border-radius: 8px;

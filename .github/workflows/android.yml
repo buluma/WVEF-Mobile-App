@@ -29,7 +29,7 @@ jobs:
       # run: sudo apt-get install openjdk-8-jdk
       run: sudo apt install openjdk-8-jdk openjdk-8-jre && java -version
 
-    - name: lets check again
+    - name: Verify Java11 removed and java-8-openjdk-amd64 installed
       run: ls /usr/lib/jvm/
 
     - name: check for jdk path and export
@@ -71,7 +71,7 @@ jobs:
     - name: Install Cordova & node-properties-parser
       run: sudo npm install -g cordova && sudo npm install node-properties-parser
       
-    - name: Build Android
+    - name: Build Android and Push Package
       # You may pin to the exact commit or the version.
       # uses: buluma/setup-cordova@1640182b19452591866992ddd5ac0c36c6b750ec
       uses: buluma/setup-cordova@v0.0.3
@@ -79,6 +79,25 @@ jobs:
         # Apache Cordova command to execute
         exec: java -version && cordova build android --verbose
 #         exec: cordova platform ls
+
+    - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Push image
+        run: |
+          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          # Strip git ref prefix from version
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "main" ] && VERSION=latest
+          echo IMAGE_ID=$IMAGE_ID
+          echo VERSION=$VERSION
+          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION
   
   build-output:
     runs-on: ubuntu-latest
@@ -101,21 +120,11 @@ jobs:
       # - name: Build image
         # run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
-      - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      - name: 'APK file'
+        run: tar -cvf wvef-app-debug.apk ${{ github.workspace }}/platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
-      - name: Push image
-        run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          # Change all uppercase to lowercase
-          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "main" ] && VERSION=latest
-          echo IMAGE_ID=$IMAGE_ID
-          echo VERSION=$VERSION
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: wvef-app-debug-apk
+          path: wvef-app-debug.apk

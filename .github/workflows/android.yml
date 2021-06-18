@@ -20,11 +20,11 @@ jobs:
     #     distribution: 'adopt'
 
     - name: remove java 11
-      run: ls /usr/lib/jvm/ && sudo rm -r /usr/lib/jvm/adoptopenjdk-11-hotspot-amd64 && java -version
+      run: ls /usr/lib/jvm/ && sudo rm -r /usr/lib/jvm/adoptopenjdk-11-hotspot-amd64
 
     - name: check and instl jdk-8
       # run: sudo apt-get install openjdk-8-jdk
-      run: sudo apt install openjdk-8-jdk openjdk-8-jre
+      run: sudo apt install openjdk-8-jdk openjdk-8-jre && java -version
 
     - name: check for jdk path and export
       # run: ls /usr/lib/jvm/

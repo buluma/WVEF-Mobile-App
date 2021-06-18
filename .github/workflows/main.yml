@@ -21,6 +21,7 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.tag }}
       output3: ${{ steps.step3.outputs.sha_short }}
+      output4: ${{ steps.step4.outputs.sha }}
     steps:
       - uses: actions/checkout@v2
       - id: step1
@@ -29,6 +30,8 @@ jobs:
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - id: step3
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - id: step4
+        run: echo "::set-output name=sha::sha"
 
       # - name: remove java 11
       #   run: ls /usr/lib/jvm/ && sudo rm -r /usr/lib/jvm/adoptopenjdk-11-hotspot-amd64 && ls /usr/lib/jvm/
@@ -55,7 +58,7 @@ jobs:
     if: always()
     needs: test
     steps:
-      - run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}} ${{needs.test.outputs.output3}}
+      - run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}} ${{needs.test.outputs.output4}} ${{needs.test.outputs.output3}}
 
       - uses: actions/checkout@v2
       - name: Check & Remove jdk-11

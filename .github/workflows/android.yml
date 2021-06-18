@@ -6,9 +6,11 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-env:
-  # TODO: Change variable to your image's name.
-  IMAGE_NAME: wvef-app-debug.apk
+
+# Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+
 
 jobs:
   test:
@@ -111,8 +113,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: 1.0.0
-        release_name: 1.0.0
+        tag_name: v1.0.2
+        release_name: v1.0.2
         draft: false
         prerelease: false
 

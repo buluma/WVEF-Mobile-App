@@ -128,7 +128,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: always()
-    needs: version_job, build
+    needs: [version_job, build]
     steps:
     - name: Create Draft Release
       id: create_release

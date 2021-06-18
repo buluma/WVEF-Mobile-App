@@ -114,9 +114,9 @@ jobs:
       run: ls -a 
 
     # delete-artifact before upload new
-    - uses: geekyeggo/delete-artifact@v1
-      with:
-        name: wvef-app-debug.apk
+    # - uses: geekyeggo/delete-artifact@v1
+    #   with:
+    #     name: wvef-app-debug.apk
 
     - uses: actions/upload-release-asset@v1.0.1
       env:

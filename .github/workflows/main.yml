@@ -31,3 +31,11 @@ jobs:
     needs: job1
     steps:
       - run: echo ${{needs.job1.outputs.output1}} ${{ steps.vars.outputs.tag }}
+  
+  release:
+    runs-on: ubuntu-lastest 
+    steps:
+    - name: delete existing
+      uses: liudonghua123/delete-release-action@v1
+      with:
+        release_name: 'latest'

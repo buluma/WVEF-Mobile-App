@@ -115,12 +115,18 @@ jobs:
         draft: false
         prerelease: false
 
+    - name: Download APK File from Build
+      uses: actions/download-artifact@v2
+      with:
+        # Download Package file from build workflow
+        name: wvef-app-debug.apk
+        
     - uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./my-artifact.zip
+        asset_path: /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App/app-debug.apk
         asset_name: my-artifact.zip
         asset_content_type: application/zip
 

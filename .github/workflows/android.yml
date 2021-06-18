@@ -78,40 +78,32 @@ jobs:
       with:
         # Apache Cordova command to execute
         exec: java -version && cordova build android --verbose
-#         exec: cordova platform ls
 
-    - name: APK files
-      run: tar -cvf wvef-app-debug.apk /github/workspace/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+    - name: Upload APK File
+        uses: actions/upload-artifact@v2
+        with:
+          name: wvef-app-debug.apk
+          path: /github/workspace/platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v2
-      with:
-        name: wvef-app-debug-apk
-        path: wvef-app-debug.apk
+    # - name: APK files
+    #   run: tar -cvf wvef-app-debug.apk /github/workspace/platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
-    - name: Send email
-      uses: devellany/send-mailer@v1.0.2
-      with:
-        host: smtp.sendgrid.net
-          # Optional port (defaults to 465)
-        port: 465
-        account: ${{secrets.ACCOUNT}}
-        password: ${{secrets.MAIL_PASSWORD}}
-        sender: michael@buluma.me.ke
-        from: ${{secrets.MAIL_ADDRESS}}
-        to: michael@buluma.me.ke
-        subject: mail title.
-        body: your messages.
-        # Optional content type (defaults to text/plain)
-        contentType: text/plain
-        # Optional attachment files (JSON type. require property 'path')
-        attachments: '[{"path":"README.md"}]'
+    # - name: 'Upload Artifact'
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: wvef-app-debug-apk
+    #     path: wvef-app-debug.apk
   
   build-output:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - run: echo ${{needs.build.outputs}} ${{needs.build.outputs.output2}}
+
+    - name: Download APK File
+        uses: actions/download-artifact@v2
+        with:
+          name: wvef-app-debug.apk
 
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/

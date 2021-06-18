@@ -102,13 +102,13 @@ jobs:
     #     name: wvef-app-debug-apk
     #     path: wvef-app-debug.apk
 
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        files: /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App/app-debug.apk
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Release Duplicate
+    #   uses: softprops/action-gh-release@v1
+    #   if: startsWith(github.ref, 'refs/tags/')
+    #   with:
+    #     files: /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App/app-debug.apk
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test-tags:
     runs-on: ubuntu-latest

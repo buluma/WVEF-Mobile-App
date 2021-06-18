@@ -81,7 +81,7 @@ jobs:
 #         exec: cordova platform ls
 
     - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: Push image
         run: |
@@ -120,8 +120,8 @@ jobs:
       # - name: Build image
         # run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
-      - name: 'APK file'
-        run: tar -cvf wvef-app-debug.apk ${{ github.workspace }}/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+      - name: 'APK files'
+        run: tar -cvf wvef-app-debug.apk /github/workspace/platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2

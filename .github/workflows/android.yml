@@ -95,10 +95,10 @@ jobs:
         host: smtp.sendgrid.net
           # Optional port (defaults to 465)
         port: 465
-        account: ${{secrets.apikey}}
-        password: ${{secrets.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}}
+        account: ${{secrets.ACCOUNT}}
+        password: ${{secrets.MAIL_PASSWORD}}
         sender: michael@buluma.me.ke
-        from: ${{secrets.michael@buluma.me.ke}}
+        from: ${{secrets.MAIL_ADDRESS}}
         to: michael@buluma.me.ke
         subject: mail title.
         body: your messages.

@@ -95,8 +95,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.vars.outputs.tag }}
-        release_name: $RELEASE_VERSION
+        tag_name: ${{needs.test.outputs.output2}}
+        release_name: ${{needs.test.outputs.output2}}
         draft: false
         prerelease: false
 

@@ -24,7 +24,8 @@ jobs:
     needs: version_job
     steps:
     # - run: ${{ steps.vars.outputs.tag }}
-    - run: echo "${{ jobs.version_job.steps.version_step.outputs.tag }}"
+    # - run: echo "${{ jobs.version_job.steps.version_step.outputs.tag }}"
+    - run: echo ${{needs.version_job.outputs.output1}}
 
   # test:
 

@@ -31,6 +31,7 @@ $(function(){
             left:'+=80%'
         },200,'swing')
     });
+
     // Start the html for WOB list
     var woblist = '';
     for (var i = 1; i <= 11; i++) {
@@ -87,12 +88,13 @@ $(function(){
     };
     $('.wob-list .list-group').html(woblist);
     //ebd WOBlist
+
     // Start the html for Buyers list
     var buyerslist = '';
     for (var i = 1; i <= 8; i++) {
         buyerslist += '<div class="list-group-item" data-toggle="modal" data-target=".bs-example-modal-lg-one'+ [i] +'">';
         buyerslist += '<p><strong>Buyer A' + [i] + '</strong></p>';
-        buyerslist += '<p>Sunny Vale California</p>';
+        buyerslist += '<p class="buyer2">Sunny Vale California</p>';
         buyerslist += '<p><a href="tel:+254 720 000 00'+ [i] +'">+254 720 000 00'+ [i] +'</a></p>';
         buyerslist += '<p><a href="mailto:info@buyer' +[i]+ '.co.ke">info@buyer'+ [i] +'.co.ke</a></p>';      
         buyerslist += '</div>';

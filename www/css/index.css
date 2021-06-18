@@ -5,7 +5,11 @@
     font-family: arial;
     color:#333;
 }
-a, a:hover{
+a {
+    color: #f28106 !important;
+    text-decoration: none;
+}
+a:hover{
     text-decoration: none;
 }
 body {
@@ -13,6 +17,9 @@ body {
 }
 input.form-control, select.form-control, textarea.form-control{
     font-size:12px;
+}
+p.buyer2{
+    color: #f28106 !important;
 }
 textarea.form-control{
     resize:none;
@@ -113,7 +120,7 @@ textarea.form-control{
     margin:0px auto;
 }
 .list-group.off-canvas-menu-left{
-    margin:10px 5px;
+    margin:5px 5px;
 }
 .list-group.off-canvas-menu-left span{
     margin-right:8px;
@@ -127,12 +134,17 @@ textarea.form-control{
     margin:10px 5px;
 }
 .container.wob-list{
-    margin-top:40px;
+    margin-top:45px;
     padding:0px 5px;
 }
 .container.wob-list .list-group-item p{
     padding:0px;
     margin:0px;
+}
+.navbar-default.other-pages {
+    background: rgba(242,129,6,1);
+    height: 45px;
+    margin-bottom: 5px;
 }
 .container.buyers-list{
     margin-top:40px;

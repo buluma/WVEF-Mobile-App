@@ -88,13 +88,15 @@ jobs:
     if: always()
     needs: [test, build]
     steps:
-    - run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}} ${{needs.test.outputs.output3}}
-    - name: Delete
+    - name: Check outupt is loaded
+      run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}} ${{needs.test.outputs.output3}}
+
+    - name: Delete Latest Release
       uses: liudonghua123/delete-release-action@v1
       with:
         release_name: 'latest'
 
-    - name: checktags
+    - name: Check Branch Tag
       run: echo ${{ steps.vars.outputs.tag }}
 
     - name: Create Draft Release
@@ -120,7 +122,8 @@ jobs:
     - name: Verify APK exists in current directory
       run: ls -a 
 
-    - uses: actions/upload-release-asset@v1.0.1
+    - name: Release Assets
+      uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -129,7 +132,8 @@ jobs:
         asset_name: wvef-app-debug-${{ needs.test.outputs.output3 }}.apk
         asset_content_type: application/apk
 
-    - uses: eregon/publish-release@v1
+    - name: Release Complete
+      uses: eregon/publish-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:

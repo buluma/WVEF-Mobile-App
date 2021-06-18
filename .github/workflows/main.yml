@@ -54,10 +54,10 @@ jobs:
       - run: echo ${{needs.test.outputs.output1}} ${{needs.test.outputs.output2}}
 
       - uses: actions/checkout@v2
-      - name: remove java 11
+      - name: Check & Remove jdk-11
         run: ls /usr/lib/jvm/ && sudo rm -r /usr/lib/jvm/adoptopenjdk-11-hotspot-amd64
 
-      - name: Instl jdk-8 & Check installed version
+      - name: Install jdk-8 & Check installed version
         run: sudo apt install openjdk-8-jdk openjdk-8-jre && java -version
 
       - name: Install Cordova & node-properties-parser
@@ -123,7 +123,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App/wvef-app-debug.apk
+        asset_path: wvef-app-debug.apk
         asset_name: wvef-app-debug.${{ steps.create_release.outputs.id }}.apk
         asset_content_type: application/apk
 

@@ -8,7 +8,7 @@ on:
 
 jobs:
   version_job:
-      name: Create tag version number
+      name: Create tag number
       runs-on: ubuntu-latest
       outputs:
         output1: ${{ steps.step1.outputs.test }}
@@ -18,9 +18,9 @@ jobs:
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
   output:
-    needs: version_job
-    name: Output - Tag ${{ steps.vars.outputs.tag }}
+    name: Output - Tag
     runs-on: ubuntu-latest
+    needs: version_job
     steps:
     - run: ${{ steps.vars.outputs.tag }}
     # - run: echo "${{ jobs.version_job.steps.version_step.outputs.tag }}"

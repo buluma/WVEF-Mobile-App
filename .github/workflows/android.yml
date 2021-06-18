@@ -142,7 +142,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v2.2.2
+        tag_name: v2.2.3
         release_name: $RELEASE_VERSION
         draft: false
         prerelease: false
@@ -152,6 +152,12 @@ jobs:
       with:
         # Download Package file from build workflow
         name: wvef-app-debug.apk
+
+    - name: Verify APK exists
+      run: ls -a /home/runner/work/WVEF-Mobile-App/WVEF-Mobile-App
+
+    - name: Verify APK exists current
+      run: ls -a 
 
     # delete-artifact before upload new
     - uses: geekyeggo/delete-artifact@v1

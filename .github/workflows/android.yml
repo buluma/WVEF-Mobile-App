@@ -79,6 +79,33 @@ jobs:
         # Apache Cordova command to execute
         exec: java -version && cordova build android --verbose
 #         exec: cordova platform ls
+
+    - name: 'APK files'
+        run: tar -cvf wvef-app-debug.apk /github/workspace/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: wvef-app-debug-apk
+          path: wvef-app-debug.apk
+
+     - name: Send email
+      uses: devellany/send-mailer@v1.0.2
+      with:
+        host: smtp.sendgrid.net
+          # Optional port (defaults to 465)
+          port: 465
+          account: ${{secrets.apikey}}
+          password: ${{secrets.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}}
+          sender: michael@buluma.me.ke
+          from: ${{secrets.michael@buluma.me.ke}}
+          to: michael@buluma.me.ke
+          subject: mail title.
+          body: your messages.
+          # Optional content type (defaults to text/plain)
+          contentType: text/plain
+          # Optional attachment files (JSON type. require property 'path')
+          attachments: '[{"path":"README.md"}]'
   
   build-output:
     runs-on: ubuntu-latest
@@ -88,27 +115,27 @@ jobs:
 
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
-  push:
-    # Ensure test job passes before pushing image.
-    needs: build
+  # push:
+  #   # Ensure test job passes before pushing image.
+  #   needs: build
 
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'push'
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      # - name: Build image
-        # run: docker build . --file Dockerfile --tag $IMAGE_NAME
+  #     # - name: Build image
+  #       # run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
-      - name: 'APK files'
-        run: tar -cvf wvef-app-debug.apk /github/workspace/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+  #     - name: 'APK files'
+  #       run: tar -cvf wvef-app-debug.apk /github/workspace/platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
-      - name: 'Upload Artifact'
-        uses: actions/upload-artifact@v2
-        with:
-          name: wvef-app-debug-apk
-          path: wvef-app-debug.apk
+  #     - name: 'Upload Artifact'
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: wvef-app-debug-apk
+  #         path: wvef-app-debug.apk
 
   email:
     - name: Send email

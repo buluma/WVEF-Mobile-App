@@ -65,7 +65,7 @@ jobs:
         exec: java -version && cordova build android --verbose
 
     - name: Where are we at this stage
-      run: ls -a
+      run: ls -a platforms/android/app/build/outputs/apk/debug/
 
     - name: Upload APK File
       uses: actions/upload-artifact@v2

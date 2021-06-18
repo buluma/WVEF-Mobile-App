@@ -22,6 +22,7 @@ jobs:
       output2: ${{ steps.step2.outputs.tag }}
       output3: ${{ steps.step3.outputs.sha_short }}
     steps:
+      - uses: actions/checkout@v2
       - id: step1
         run: echo "::set-output name=test::tag"
       - id: step2

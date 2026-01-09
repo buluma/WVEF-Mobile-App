@@ -8,9 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs --fix",
+    "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "cordova-build": "vite build && echo 'Build completed. Files are in www/ directory for Cordova.'"
+    "cordova-build": "npm run build && cordova build"
   },
   "keywords": ["mobile", "cordova", "vue", "women", "business"],
   "author": "Shadow Walker",

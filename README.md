@@ -2,6 +2,20 @@
 
 A modernized version of the Women Owned Businesses Network Mobile Application built with Vue.js and modern web technologies. This application connects women business owners with buyers and vice versa.
 
+## Node.js Version Requirement
+
+⚠️ **Important**: This project requires Node.js version 20 or higher for development and build processes. The current version (v18.20.8) does not support all required features.
+
+To upgrade Node.js, we recommend using a version manager like `nvm`:
+```bash
+# Install nvm if you don't have it
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+# Install and use Node.js v20+
+nvm install 20
+nvm use 20
+```
+
 ## Features
 
 - **Vue 3** with Composition API
@@ -49,16 +63,19 @@ npm install
 ```bash
 npm run dev
 ```
+⚠️ **Note**: Requires Node.js v20+. With older versions, you'll see an error message.
 
 3. Build for production:
 ```bash
 npm run build
 ```
+⚠️ **Note**: Requires Node.js v20+. With older versions, you'll see an error message.
 
 4. Preview production build:
 ```bash
 npm run preview
 ```
+⚠️ **Note**: Requires Node.js v20+. With older versions, you'll see an error message.
 
 ## Development
 
@@ -73,7 +90,7 @@ This application is designed to work with Apache Cordova for mobile deployment. 
 npm run build
 ```
 
-2. The build output goes to the `dist` folder, which can be copied to your Cordova project's `www` folder
+2. The build output goes to the `www` folder, which can be used directly as the Cordova project's `www` folder
 
 3. Add your mobile platforms:
 ```bash

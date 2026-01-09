@@ -16,7 +16,7 @@ export default defineConfig({
     open: true
   },
   build: {
-    outDir: '../www', // Output built files to www directory for Cordova
+    outDir: 'www', // Output built files to www directory for Cordova
     emptyOutDir: true
   }
 })

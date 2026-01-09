@@ -1,19 +1,107 @@
-WVEF-Mobile-App
-=======
-[![Test, Build and Release](https://github.com/buluma/WVEF-Mobile-App/actions/workflows/main.yml/badge.svg)](https://github.com/buluma/WVEF-Mobile-App/actions/workflows/main.yml) ![GitHub repo size](https://img.shields.io/github/repo-size/buluma/WVEF-Mobile-App) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/buluma/WVEF-Mobile-App) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/buluma/WVEF-Mobile-App) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/buluma/WVEF-Mobile-App/v2.4.4/master) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/buluma/WVEF-Mobile-App) ![GitHub last commit](https://img.shields.io/github/last-commit/buluma/WVEF-Mobile-App) ![GitHub Release Date](https://img.shields.io/github/release-date/buluma/WVEF-Mobile-App) ![GitHub contributors](https://img.shields.io/github/contributors/buluma/WVEF-Mobile-App)
+# Women Owned Businesses Network (WVEF) - Modernized Mobile App
 
-*WVEF-Mobile-App* is a Mobile Application that connects Women Business Owners and Buyers and vice versa. It is as shiny, awesome, and open sourcy as always. Perhaps even a little more.
+A modernized version of the Women Owned Businesses Network Mobile Application built with Vue.js and modern web technologies. This application connects women business owners with buyers and vice versa.
 
-Contributing
-------------
+## Features
+
+- **Vue 3** with Composition API
+- **Vite** for fast development
+- **Pinia** for state management
+- **Vue Router** for navigation
+- **Tailwind CSS** for styling
+- **Responsive design** for all devices
+- **Modular architecture** with components
+- **API-ready** with service layer
+- **Cordova-compatible** for mobile deployment
+
+## Tech Stack
+
+- **Framework**: Vue 3
+- **Build Tool**: Vite
+- **State Management**: Pinia
+- **Routing**: Vue Router
+- **Styling**: Tailwind CSS
+- **Language**: JavaScript
+- **Mobile**: Cordova compatible
+
+## Project Structure
+
+```
+www/                    # Vue.js source files (formerly src/)
+├── components/         # Reusable Vue components
+├── views/              # Page components
+├── stores/             # Pinia stores
+├── assets/             # Static assets
+├── utils/              # Utility functions
+├── router/             # Vue Router configuration
+├── main.js             # Entry point
+└── App.vue             # Root component
+```
+
+## Setup
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Run the development server:
+```bash
+npm run dev
+```
+
+3. Build for production:
+```bash
+npm run build
+```
+
+4. Preview production build:
+```bash
+npm run preview
+```
+
+## Development
+
+The application follows Vue 3 Composition API patterns with Pinia for state management. All business logic is encapsulated in Pinia stores, and components are organized in a modular fashion.
+
+## Mobile Deployment
+
+This application is designed to work with Apache Cordova for mobile deployment. After building the application, you can integrate it with Cordova:
+
+1. Build the application:
+```bash
+npm run build
+```
+
+2. The build output goes to the `dist` folder, which can be copied to your Cordova project's `www` folder
+
+3. Add your mobile platforms:
+```bash
+cordova platform add android
+cordova platform add ios
+```
+
+4. Build for mobile:
+```bash
+cordova build android
+cordova build ios
+```
+
+## API Integration
+
+The application includes an API service layer in `www/utils/api.js` that can be connected to a backend. The current implementation uses mock data but is structured to easily connect to a real API.
+
+Environment variables can be configured in a `.env` file:
+```
+VITE_API_BASE_URL=https://your-api-base-url.com
+```
+
+## Contributing
 
 Internal patches are welcome! Feel free to fork and contribute to this project. If you find a problem and wish to report it, please let us know.
 
-[ShadowNet]: buluma.co.ke
+## License
 
-Software
--------
+MIT
 
 Maintained by Shadow Walker
-
-

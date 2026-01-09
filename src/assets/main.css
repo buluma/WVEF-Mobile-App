@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded;
+  }
+  
+  .card {
+    @apply bg-white shadow-md rounded-lg p-6 mb-4;
+  }
+  
+  .off-canvas {
+    @apply fixed bg-white shadow-lg z-50 h-full transition-transform duration-300 ease-in-out;
+  }
+  
+  .off-canvas-left {
+    @apply left-0 top-0 bottom-0 w-4/5 max-w-sm;
+  }
+  
+  .off-canvas-right {
+    @apply right-0 top-0 bottom-0 w-4/5 max-w-sm;
+  }
+  
+  .nav-bar {
+    @apply bg-orange-500 text-white py-3 px-4 fixed top-0 left-0 right-0 z-40 shadow-md;
+  }
+  
+  .list-item {
+    @apply border-b border-gray-200 py-3 px-4 hover:bg-gray-50 cursor-pointer;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding-top: 50px; /* Account for fixed navbar */
+}
+
+.carousel-container {
+  height: 300px;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  z-index: 1001;
+}
